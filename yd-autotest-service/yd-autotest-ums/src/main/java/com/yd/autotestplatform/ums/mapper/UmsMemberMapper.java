@@ -2,6 +2,8 @@ package com.yd.autotestplatform.ums.mapper;
 
 import com.yd.autotestplatform.ums.entity.UmsMember;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,5 +16,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UmsMemberMapper extends BaseMapper<UmsMember> {
-
+    @Select("select password from ums_member where username = #{name}")
+    UmsMember selectByName(String name);
 }

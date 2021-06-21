@@ -1,6 +1,7 @@
 package com.yd.autotestplatform.ums.service.impl;
 
 import com.yd.autotestplatform.ums.entity.UmsMember;
+import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
 import com.yd.autotestplatform.ums.mapper.UmsMemberMapper;
 import com.yd.autotestplatform.ums.service.UmsMemberService;
@@ -42,8 +43,19 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
         return umsMember.toString();
     }
 
-    public String login(){
-        return "login success";
+    public String login(UmsMemberLoginParamDTO umsMemberLoginParamDTO){
+        UmsMember umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUserName());
+        if(null != umsMember){
+            String passwordInDb = umsMember.getPassword();
+
+            if (!passwordEncoder.matches(passwordInDb, umsMember.getPassword())){
+                return "密码错误！";
+            }else {
+                return "login success";
+            }
+        }else {
+            return "账号不存在！";
+        }
     }
 
     public String logout(){

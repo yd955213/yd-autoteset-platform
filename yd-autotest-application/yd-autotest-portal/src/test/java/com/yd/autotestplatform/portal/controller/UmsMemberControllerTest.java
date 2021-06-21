@@ -1,6 +1,7 @@
 package com.yd.autotestplatform.portal.controller;
 
 import com.google.gson.Gson;
+import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ class UmsMemberControllerTest {
 
     @Test
     @Nullable
-    void register() throws Exception {
+    void testRegister() throws Exception {
         UmsMemberRegisterParamDTO umsMemberRegisterParamDTO = new UmsMemberRegisterParamDTO();
         umsMemberRegisterParamDTO.setUsername("yd");
         umsMemberRegisterParamDTO.setPassword("123");
@@ -52,6 +53,24 @@ class UmsMemberControllerTest {
             )
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print())
+                .andReturn();
+        System.out.println("测试返回：" + mvcResult.getResponse().getContentAsString());
+    }
+
+
+    @Test
+    void login() throws Exception {
+        UmsMemberLoginParamDTO umsMemberLoginParamDTO = new UmsMemberLoginParamDTO();
+        umsMemberLoginParamDTO.setUserName("yd");
+        umsMemberLoginParamDTO.setPassWord("123");
+        Gson gson = new Gson();
+
+        MvcResult mvcResult = mockMvc.perform(
+                MockMvcRequestBuilders.post("/ums-member/login")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(gson.toJson(umsMemberLoginParamDTO))
+        )
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
         System.out.println("测试返回：" + mvcResult.getResponse().getContentAsString());
     }

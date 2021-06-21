@@ -2,6 +2,7 @@ package com.yd.autotestplatform.portal.controller;
 
 
 import com.yd.autotestplatform.ums.entity.UmsMember;
+import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
 import com.yd.autotestplatform.ums.mapper.UmsMemberMapper;
 import com.yd.autotestplatform.ums.service.UmsMemberService;
@@ -29,6 +30,13 @@ public class UmsMemberController {
         String register = umsMemberService.register(umsMemberRegisterParamDTO);
 
         return register;
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
+        String login = umsMemberService.login(umsMemberLoginParamDTO);
+        return login;
+
     }
 }
 
