@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="yd-autotest-ums-api" />
+        <module name="yd-autotest-portal" />
+        <module name="yd-autotest-generator" />
+        <module name="yd-autotest-portal-api" />
+        <module name="yd-autotest-ums1" />
+        <module name="yd-autotest-ums" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="yd-autotest-portal-api" target="11" />
+      <module name="yd-autotest-ums1" target="14" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="yd-autotest-api" options="-parameters" />
+      <module name="yd-autotest-application" options="-parameters" />
+      <module name="yd-autotest-common" options="-parameters" />
+      <module name="yd-autotest-generator" options="-parameters" />
+      <module name="yd-autotest-portal" options="-parameters" />
+      <module name="yd-autotest-portal-api" options="-parameters" />
+      <module name="yd-autotest-service" options="-parameters" />
+      <module name="yd-autotest-ums" options="-parameters" />
+      <module name="yd-autotest-ums-api" options="-parameters" />
+      <module name="yd-autotest-ums1" options="-parameters" />
+    </option>
+  </component>
+</project>
