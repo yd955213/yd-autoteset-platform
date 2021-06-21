@@ -2,6 +2,7 @@ package com.yd.autotestplatform.ums.service;
 
 import com.yd.autotestplatform.ums.entity.UmsMember;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
 
 /**
  * <p>
@@ -12,5 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-06-21
  */
 public interface UmsMemberService extends IService<UmsMember> {
-    String register();
+    String register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO);
 }

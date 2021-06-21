@@ -2,14 +2,11 @@ package com.yd.autotestplatform.portal.controller;
 
 
 import com.yd.autotestplatform.ums.entity.UmsMember;
+import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
 import com.yd.autotestplatform.ums.mapper.UmsMemberMapper;
 import com.yd.autotestplatform.ums.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -26,9 +23,10 @@ public class UmsMemberController {
     @Autowired
     UmsMemberService umsMemberService;
 
-    @GetMapping("/register")
-    public String register(){
-        String register = umsMemberService.register();
+    @PostMapping("/register")
+    public String register(@RequestBody UmsMemberRegisterParamDTO umsMemberRegisterParamDTO){
+
+        String register = umsMemberService.register(umsMemberRegisterParamDTO);
 
         return register;
     }
