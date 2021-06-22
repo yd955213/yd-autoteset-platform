@@ -35,8 +35,8 @@ class UmsMemberMapperTest {
         UmsMemberLoginParamDTO umsMemberLoginParamDTO = new UmsMemberLoginParamDTO();
         umsMemberLoginParamDTO.setUserName("yd");
         umsMemberLoginParamDTO.setPassWord("123");
-//        UmsMember umsMember = umsMemberMapper.selectById(68L);
-        UmsMember umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUserName());
+        UmsMember umsMember = umsMemberMapper.selectById(68L);
+        umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUserName());
         System.out.println(umsMember);
     }
 

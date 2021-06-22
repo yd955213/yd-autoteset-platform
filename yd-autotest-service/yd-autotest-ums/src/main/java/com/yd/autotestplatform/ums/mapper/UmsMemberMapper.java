@@ -16,6 +16,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UmsMemberMapper extends BaseMapper<UmsMember> {
-    @Select("select password from ums_member where username = #{name}")
+//    @Select("select password from ums_member where username = #{name}")
     UmsMember selectByName(String name);
 }
