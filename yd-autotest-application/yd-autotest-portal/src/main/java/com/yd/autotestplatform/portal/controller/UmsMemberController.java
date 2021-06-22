@@ -1,6 +1,7 @@
 package com.yd.autotestplatform.portal.controller;
 
 
+import com.yd.autotestplatform.base.result.ResultWrapper;
 import com.yd.autotestplatform.ums.entity.UmsMember;
 import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
@@ -25,16 +26,16 @@ public class UmsMemberController {
     UmsMemberService umsMemberService;
 
     @PostMapping("/register")
-    public String register(@RequestBody UmsMemberRegisterParamDTO umsMemberRegisterParamDTO){
+    public ResultWrapper<String>  register(@RequestBody UmsMemberRegisterParamDTO umsMemberRegisterParamDTO){
 
-        String register = umsMemberService.register(umsMemberRegisterParamDTO);
+        ResultWrapper<String>  register = umsMemberService.register(umsMemberRegisterParamDTO);
 
         return register;
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
-        String login = umsMemberService.login(umsMemberLoginParamDTO);
+    public ResultWrapper<String> login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
+        ResultWrapper<String> login = umsMemberService.login(umsMemberLoginParamDTO);
         return login;
 
     }

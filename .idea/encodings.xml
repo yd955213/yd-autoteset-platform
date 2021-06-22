@@ -3,8 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/yd-autotest-api/yd-autotest-ums-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yd-autotest-application/yd-autotest-portal/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/yd-autotest-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/yd-autotest-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yd-autotest-common/yd-autorestplatform-base/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yd-autotest-generator/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yd-autotest-service/yd-autotest-ums/src/main/java" charset="UTF-8" />
   </component>

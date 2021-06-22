@@ -1,5 +1,6 @@
 package com.yd.autotestplatform.ums.service.impl;
 
+import com.yd.autotestplatform.base.result.ResultWrapper;
 import com.yd.autotestplatform.ums.entity.UmsMember;
 import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import javax.xml.transform.Result;
 
 /**
  * <p>
@@ -28,7 +31,7 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    public String register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO){
+    public ResultWrapper<String>  register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO){
 
         UmsMember umsMember = new UmsMember();
         // 将umsMemberRegisterParamDTO的属性值传递给umsMember
@@ -39,22 +42,30 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
         // spring 常用写法
         String encode = passwordEncoder.encode(umsMember.getPassword());
         umsMember.setPassword(encode);
+//        try {
         umsMemberMapper.insert(umsMember);
-        return umsMember.toString();
+        return ResultWrapper.getSuccessBuilder().data("注册成功").build();
+//        }catch (Exception e){
+//            return ResultWrapper.getFailBuilder().data("用户名已存在").build();
+//        }
     }
 
-    public String login(UmsMemberLoginParamDTO umsMemberLoginParamDTO){
+    public ResultWrapper<String> login(UmsMemberLoginParamDTO umsMemberLoginParamDTO){
         UmsMember umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUserName());
+        String data = "";
         if(null != umsMember){
             String passwordInDb = umsMember.getPassword();
 
-            if (!passwordEncoder.matches(passwordInDb, umsMember.getPassword())){
-                return "密码错误！";
+            if (!passwordEncoder.matches(umsMemberLoginParamDTO.getPassWord(), umsMember.getPassword())){
+                data = "密码错误！";
+                return ResultWrapper.getFailBuilder().data(data).build();
             }else {
-                return "login success";
+                data = "登录成功";
+                return ResultWrapper.getSuccessBuilder().data(data).build();
             }
         }else {
-            return "账号不存在！";
+            data =  "账号不存在！";
+            return ResultWrapper.getFailBuilder().data(data).build();
         }
     }
 
