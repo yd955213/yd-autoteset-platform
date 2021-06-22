@@ -3,7 +3,9 @@ package com.yd.autotestplatform.base.enums;
 /**
  * <p>
  *  统一回复状态码：
- *  100-199: 用户业务的。
+ *  1001-1199: 用户业务的。
+ *  3001-3199: 参数格式异常
+ *  5001-5299: 后台服务处理异常
  * </p>
  *
  * @author: yd
@@ -22,11 +24,26 @@ public enum StateCodeEnum {
      * 用户不存在
      */
     USER_EMPTY(1002,"用户不存在"),
+    /**
+     * 用户已存在
+     */
+    USER_EXISTS(1003,"用户已存在"),
+
+    /**
+     * 参数格式异常
+     */
+    ABNORMAL_PARAMETER_FORMAT(3001, "参数格式异常"),
+
+    /**
+     * ArithmeticException
+     */
+    ARITHMETIC_EXCEPTION(4001,"后台参数计算错误"),
 
     /**
      * 请求失败
      */
     FAIL(500,"请求失败"),
+
     /**
      * 请求成功
      */

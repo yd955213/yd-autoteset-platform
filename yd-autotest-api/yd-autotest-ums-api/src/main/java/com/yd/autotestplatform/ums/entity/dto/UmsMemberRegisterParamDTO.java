@@ -1,7 +1,13 @@
 package com.yd.autotestplatform.ums.entity.dto;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 /**
  * <p>
- *  后台用户表
+ * 后台用户表
  * </p>
  *
  * @author: yd
@@ -12,10 +18,14 @@ package com.yd.autotestplatform.ums.entity.dto;
  */
 
 public class UmsMemberRegisterParamDTO {
-
-    private String username;
-    private String password;
+    @Size(min = 1, max = 8, message = "用户名长度在1-8之间")
+    private String userName;
+    @Min(value = 3, message = "密码长度大于2")
+    private String passWord;
     private String icon;
+    @Pattern(regexp = "^[1][3, 4, 5, 6, 7, 8, 9][0-9]{9}$", message = "手机号格式错误！")
+    private String phoneNumber;
+    @Email
     private String email;
     private String nickName;
     private String note;
@@ -23,30 +33,40 @@ public class UmsMemberRegisterParamDTO {
     @Override
     public String toString() {
         return "UmsMemberRegisterParamDTO{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                "username='" + userName + '\'' +
+                ", password='" + passWord + '\'' +
                 ", icon='" + icon + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", nickName='" + nickName + '\'' +
                 ", note='" + note + '\'' +
                 '}';
     }
 
-    public String getUsername() {
-        return username;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public UmsMemberRegisterParamDTO setUsername(String username) {
-        this.username = username;
+    public UmsMemberRegisterParamDTO setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        return this;
+    }
+
+    public String getUsername() {
+        return userName;
+    }
+
+    public UmsMemberRegisterParamDTO setUsername(String userName) {
+        this.userName = userName;
         return this;
     }
 
     public String getPassword() {
-        return password;
+        return passWord;
     }
 
-    public UmsMemberRegisterParamDTO setPassword(String password) {
-        this.password = password;
+    public UmsMemberRegisterParamDTO setPassword(String passWord) {
+        this.passWord = passWord;
         return this;
     }
 

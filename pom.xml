@@ -33,6 +33,14 @@
     <name>org.yd-auto-test-platform</name>
     <description>自动化测试</description>
 
+    <dependencies>
+        <!--spring validation 校验-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

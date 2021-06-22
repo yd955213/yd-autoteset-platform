@@ -8,7 +8,10 @@ import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
 import com.yd.autotestplatform.ums.mapper.UmsMemberMapper;
 import com.yd.autotestplatform.ums.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * <p>
@@ -26,7 +29,7 @@ public class UmsMemberController {
     UmsMemberService umsMemberService;
 
     @PostMapping("/register")
-    public ResultWrapper<String>  register(@RequestBody UmsMemberRegisterParamDTO umsMemberRegisterParamDTO){
+    public ResultWrapper<String>  register(@RequestBody @Valid  UmsMemberRegisterParamDTO umsMemberRegisterParamDTO){
 
         ResultWrapper<String>  register = umsMemberService.register(umsMemberRegisterParamDTO);
 
@@ -34,7 +37,8 @@ public class UmsMemberController {
     }
 
     @PostMapping("/login")
-    public ResultWrapper<String> login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
+    public ResultWrapper<String> login(@RequestBody @Valid UmsMemberLoginParamDTO umsMemberLoginParamDTO){
+        System.out.println(umsMemberLoginParamDTO);
         ResultWrapper<String> login = umsMemberService.login(umsMemberLoginParamDTO);
         return login;
 

@@ -40,7 +40,7 @@ class UmsMemberControllerTest {
     @Nullable
     void testRegister() throws Exception {
         UmsMemberRegisterParamDTO umsMemberRegisterParamDTO = new UmsMemberRegisterParamDTO();
-        umsMemberRegisterParamDTO.setUsername("yd");
+        umsMemberRegisterParamDTO.setUsername("yd1");
         umsMemberRegisterParamDTO.setPassword("123");
         umsMemberRegisterParamDTO.setEmail("yd@163.com");
         umsMemberRegisterParamDTO.setNote("这是一个测试人员");

@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="yd-autotest-ums-api" />
+        <module name="yd-autotest-platform-util" />
         <module name="yd-autotest-portal" />
         <module name="yd-autotest-generator" />
         <module name="yd-autotest-portal-api" />
@@ -28,6 +29,7 @@
       <module name="yd-autotest-application" options="-parameters" />
       <module name="yd-autotest-common" options="-parameters" />
       <module name="yd-autotest-generator" options="-parameters" />
+      <module name="yd-autotest-platform-util" options="-parameters" />
       <module name="yd-autotest-portal" options="-parameters" />
       <module name="yd-autotest-portal-api" options="-parameters" />
       <module name="yd-autotest-service" options="-parameters" />

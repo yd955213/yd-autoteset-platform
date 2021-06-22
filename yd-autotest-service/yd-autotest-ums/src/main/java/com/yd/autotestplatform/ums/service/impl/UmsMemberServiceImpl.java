@@ -1,5 +1,6 @@
 package com.yd.autotestplatform.ums.service.impl;
 
+import com.yd.autotestplatform.base.enums.StateCodeEnum;
 import com.yd.autotestplatform.base.result.ResultWrapper;
 import com.yd.autotestplatform.ums.entity.UmsMember;
 import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
@@ -42,12 +43,8 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
         // spring 常用写法
         String encode = passwordEncoder.encode(umsMember.getPassword());
         umsMember.setPassword(encode);
-//        try {
         umsMemberMapper.insert(umsMember);
         return ResultWrapper.getSuccessBuilder().data("注册成功").build();
-//        }catch (Exception e){
-//            return ResultWrapper.getFailBuilder().data("用户名已存在").build();
-//        }
     }
 
     public ResultWrapper<String> login(UmsMemberLoginParamDTO umsMemberLoginParamDTO){
@@ -58,15 +55,21 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
 
             if (!passwordEncoder.matches(umsMemberLoginParamDTO.getPassWord(), umsMember.getPassword())){
                 data = "密码错误！";
-                return ResultWrapper.getFailBuilder().data(data).build();
-            }else {
-                data = "登录成功";
-                return ResultWrapper.getSuccessBuilder().data(data).build();
+                return ResultWrapper.getFailBuilder()
+                        .code(StateCodeEnum.PASSWORD_ERROR.getCode())
+                        .msg(StateCodeEnum.PASSWORD_ERROR.getMsg())
+                        .data(data)
+                        .build();
             }
         }else {
-            data =  "账号不存在！";
-            return ResultWrapper.getFailBuilder().data(data).build();
+            data =  "用户不存在！";
+            return ResultWrapper.getFailBuilder()
+                    .code(StateCodeEnum.USER_EMPTY.getCode())
+                    .msg(StateCodeEnum.USER_EMPTY.getMsg()).data(data).build();
         }
+
+        data = "登录成功";
+        return ResultWrapper.getSuccessBuilder().data(data).build();
     }
 
     public String logout(){
