@@ -40,7 +40,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(TokenException.class)
     public ResultWrapper tokenException(){
-
         return ResultWrapper.getFailBuilder()
                 .code(StateCodeEnum.FAIL.getCode())
                 .msg(StateCodeEnum.FAIL.getMsg()).build();

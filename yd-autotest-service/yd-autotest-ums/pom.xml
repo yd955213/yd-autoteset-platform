@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.yd-auto-test-platform</groupId>
+    <groupId>com.yd.autotest-platform.service</groupId>
     <artifactId>yd-autotest-ums-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>yd-autotest-ums</name>
