@@ -1,9 +1,7 @@
-package com.yd.autotestplatform.ums.mapper;
+package com.yd.autotestplatform.service.ums.mapper;
 
-import com.yd.autotestplatform.ums.entity.UmsMember;
+import com.yd.autotestplatform.service.ums.entity.UmsMember;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /**

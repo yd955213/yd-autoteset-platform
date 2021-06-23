@@ -10,10 +10,10 @@
         <module name="yd-autotest-ums-api" />
         <module name="yd-autotest-platform-util" />
         <module name="yd-autotest-portal" />
+        <module name="yd-autorest-platform-base" />
         <module name="yd-autotest-generator" />
         <module name="yd-autotest-portal-api" />
         <module name="yd-autotest-ums1" />
-        <module name="yd-autorestplatform-base" />
         <module name="yd-autotest-ums" />
       </profile>
     </annotationProcessing>
@@ -24,7 +24,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="yd-autorestplatform-base" options="-parameters" />
+      <module name="yd-autorest-platform-base" options="-parameters" />
       <module name="yd-autotest-api" options="-parameters" />
       <module name="yd-autotest-application" options="-parameters" />
       <module name="yd-autotest-common" options="-parameters" />

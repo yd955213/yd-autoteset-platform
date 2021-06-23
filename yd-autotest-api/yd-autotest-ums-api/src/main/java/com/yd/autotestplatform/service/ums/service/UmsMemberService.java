@@ -1,10 +1,10 @@
-package com.yd.autotestplatform.ums.service;
+package com.yd.autotestplatform.service.ums.service;
 
 import com.yd.autotestplatform.base.result.ResultWrapper;
-import com.yd.autotestplatform.ums.entity.UmsMember;
+import com.yd.autotestplatform.service.ums.entity.UmsMember;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
-import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
+import com.yd.autotestplatform.service.ums.entity.dto.UmsMemberLoginParamDTO;
+import com.yd.autotestplatform.service.ums.entity.dto.UmsMemberRegisterParamDTO;
 
 /**
  * <p>
@@ -17,5 +17,6 @@ import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
 public interface UmsMemberService extends IService<UmsMember> {
     ResultWrapper<String> register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO);
     ResultWrapper<String> login(UmsMemberLoginParamDTO umsMemberLoginParamDTO);
-
+    ResultWrapper<String> logout(String token);
+    ResultWrapper<String> edit(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO);
 }

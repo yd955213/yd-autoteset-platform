@@ -1,4 +1,4 @@
-package com.yd.autotestplatform.ums.entity;
+package com.yd.autotestplatform.service.ums.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 

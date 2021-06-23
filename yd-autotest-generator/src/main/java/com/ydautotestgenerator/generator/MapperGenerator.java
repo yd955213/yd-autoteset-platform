@@ -20,7 +20,7 @@ public class MapperGenerator {
     public static void main(String[] args) {
         String tableName = "ums_member";
         String outputDir = "E:\\JavaWorkspace\\auto-test-platform\\yd-autotest-service\\yd-autotest-ums\\src\\main\\java";
-        String parentPackage = "com.yd.autotestplatform.ums";
+        String parentPackage = "com.yd.autotestplatform.service.ums";
         // 构建一个代码生成对象
         AutoGenerator mpg = new AutoGenerator();
 

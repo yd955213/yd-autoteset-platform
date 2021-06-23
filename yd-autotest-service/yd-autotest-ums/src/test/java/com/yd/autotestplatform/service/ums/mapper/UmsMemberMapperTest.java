@@ -1,16 +1,11 @@
-package com.yd.autotestplatform.ums.mapper;
+package com.yd.autotestplatform.service.ums.mapper;
 
-import com.yd.autotestplatform.ums.entity.UmsMember;
-import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
-import com.yd.autotestplatform.ums.service.UmsMemberService;
+import com.yd.autotestplatform.service.ums.entity.UmsMember;
+import com.yd.autotestplatform.service.ums.entity.dto.UmsMemberLoginParamDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.annotation.Transactional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * <p>

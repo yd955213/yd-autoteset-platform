@@ -1,5 +1,6 @@
-package com.yd.autotestplatform.ums;
+package com.yd.autotestplatform.service.ums;
 
+import com.yd.autotestplatform.service.ums.entity.UmsMember;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,4 +24,7 @@ public class YdAutotestUmsApplication {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    public UmsMember UmsMember(){ return  new UmsMember(); }
 }

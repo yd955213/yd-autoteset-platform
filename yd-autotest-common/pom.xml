@@ -16,5 +16,8 @@
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
     </properties>
-
+    <modules>
+        <module>yd-autotest-platform-util</module>
+        <module>yd-autorest-platform-base</module>
+    </modules>
 </project>

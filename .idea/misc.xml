@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/yd-autotest-application/yd-autotest-portal/pom.xml" />
         <option value="$PROJECT_DIR$/yd-autotest-common/yd-autorestplatform-base/pom.xml" />
         <option value="$PROJECT_DIR$/yd-autotest-common/yd-autotest-platform-util/pom.xml" />
+        <option value="$PROJECT_DIR$/yd-autotest-common/yd-autorest-platform-base/pom.xml" />
       </list>
     </option>
   </component>

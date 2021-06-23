@@ -1,4 +1,4 @@
-package com.yd.autotestplatform.ums.config;
+package com.yd.autotestplatform.service.ums.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;

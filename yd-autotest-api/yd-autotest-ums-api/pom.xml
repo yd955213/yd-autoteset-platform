@@ -15,10 +15,15 @@
     <dependencies>
         <dependency>
             <groupId>com.yd.autotestplatform.base</groupId>
-            <artifactId>yd-autorestplatform-base</artifactId>
+            <artifactId>yd-autorest-platform-base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.yd.autotestplatform.base</groupId>-->
+<!--            <artifactId>yd-autorestplatform-base</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
     </dependencies>
     <!--    <dependencies>-->
 <!--        <dependency>-->

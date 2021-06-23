@@ -1,14 +1,12 @@
-package com.yd.autotestplatform.ums.service.impl;
+package com.yd.autotestplatform.service.ums.service.impl;
 
 import com.yd.autotestplatform.base.result.ResultWrapper;
-import com.yd.autotestplatform.ums.entity.UmsMember;
-import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
-import com.yd.autotestplatform.ums.mapper.UmsMemberMapper;
+import com.yd.autotestplatform.service.ums.entity.UmsMember;
+import com.yd.autotestplatform.service.ums.entity.dto.UmsMemberLoginParamDTO;
+import com.yd.autotestplatform.service.ums.mapper.UmsMemberMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class UmsMemberServiceImplTest {

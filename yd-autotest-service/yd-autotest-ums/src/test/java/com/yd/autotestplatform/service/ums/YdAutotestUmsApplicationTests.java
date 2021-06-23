@@ -1,4 +1,4 @@
-package com.yd.autotestplatform.ums;
+package com.yd.autotestplatform.service.ums;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

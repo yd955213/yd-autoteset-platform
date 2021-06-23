@@ -1,20 +1,20 @@
-package com.yd.autotestplatform.ums.service.impl;
+package com.yd.autotestplatform.service.ums.service.impl;
 
 import com.yd.autotestplatform.base.enums.StateCodeEnum;
 import com.yd.autotestplatform.base.result.ResultWrapper;
-import com.yd.autotestplatform.ums.entity.UmsMember;
-import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
-import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
-import com.yd.autotestplatform.ums.mapper.UmsMemberMapper;
-import com.yd.autotestplatform.ums.service.UmsMemberService;
+import com.yd.autotestplatform.service.ums.entity.UmsMember;
+import com.yd.autotestplatform.service.ums.entity.dto.UmsMemberLoginParamDTO;
+import com.yd.autotestplatform.service.ums.entity.dto.UmsMemberRegisterParamDTO;
+import com.yd.autotestplatform.service.ums.mapper.UmsMemberMapper;
+import com.yd.autotestplatform.service.ums.service.UmsMemberService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.yd.autotestplatform.util.JwtToken;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.xml.transform.Result;
+import java.util.Date;
 
 /**
  * <p>
@@ -32,9 +32,12 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @Autowired
+    UmsMember umsMember;
+
     public ResultWrapper<String>  register(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO){
 
-        UmsMember umsMember = new UmsMember();
+//        UmsMember umsMember = new UmsMember();
         // 将umsMemberRegisterParamDTO的属性值传递给umsMember
         BeanUtils.copyProperties(umsMemberRegisterParamDTO, umsMember);
         // 使用BCryptPasswordEncoder 加密密码后写库 这种方法不常用，
@@ -48,7 +51,7 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
     }
 
     public ResultWrapper<String> login(UmsMemberLoginParamDTO umsMemberLoginParamDTO){
-        UmsMember umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUserName());
+        umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUserName());
         String data = "";
         if(null != umsMember){
             String passwordInDb = umsMember.getPassword();
@@ -68,11 +71,25 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
                     .msg(StateCodeEnum.USER_EMPTY.getMsg()).data(data).build();
         }
 
-        data = "登录成功";
-        return ResultWrapper.getSuccessBuilder().data(data).build();
+        String token = JwtToken.creatToken(umsMemberLoginParamDTO.getUserName());
+
+        return ResultWrapper.getSuccessBuilder().data(token).build();
     }
 
-    public String logout(){
-        return "logout success";
+    public ResultWrapper<String> logout(String token){
+        String parseToken = JwtToken.parseToken(token);
+        umsMember = umsMemberMapper.selectByName(parseToken);
+        umsMember.setLoginTime(new Date());
+        umsMemberMapper.updateById(umsMember);
+        return ResultWrapper.getSuccessBuilder().data("注销成功").build();
     }
+
+    @Override
+    public ResultWrapper<String> edit(UmsMemberRegisterParamDTO umsMemberRegisterParamDTO) {
+        BeanUtils.copyProperties(umsMemberRegisterParamDTO, umsMember);
+        umsMemberMapper.updateById(umsMember);
+        return ResultWrapper.getSuccessBuilder().data("更新信息成功").build();
+    }
+
+
 }

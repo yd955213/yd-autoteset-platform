@@ -14,14 +14,17 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
     <groupId>com.yd.autotestplatform.base</groupId>
     <artifactId>yd-autorest-platform-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>yd-autorest-platform-base</name>
     <description>基本工具类</description>
+
     <properties>
         <java.version>11</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

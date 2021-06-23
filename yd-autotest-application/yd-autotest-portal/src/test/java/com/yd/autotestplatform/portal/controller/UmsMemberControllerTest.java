@@ -1,8 +1,8 @@
 package com.yd.autotestplatform.portal.controller;
 
 import com.google.gson.Gson;
-import com.yd.autotestplatform.ums.entity.dto.UmsMemberLoginParamDTO;
-import com.yd.autotestplatform.ums.entity.dto.UmsMemberRegisterParamDTO;
+import com.yd.autotestplatform.service.ums.entity.dto.UmsMemberLoginParamDTO;
+import com.yd.autotestplatform.service.ums.entity.dto.UmsMemberRegisterParamDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -14,10 +14,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * <p>

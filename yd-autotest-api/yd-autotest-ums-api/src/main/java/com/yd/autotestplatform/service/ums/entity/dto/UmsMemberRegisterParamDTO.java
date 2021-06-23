@@ -1,4 +1,4 @@
-package com.yd.autotestplatform.ums.entity.dto;
+package com.yd.autotestplatform.service.ums.entity.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
