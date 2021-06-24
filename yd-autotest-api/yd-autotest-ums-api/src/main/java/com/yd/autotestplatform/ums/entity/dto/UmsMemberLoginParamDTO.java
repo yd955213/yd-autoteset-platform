@@ -18,34 +18,34 @@ import javax.validation.constraints.Size;
 public class UmsMemberLoginParamDTO {
     @Size(min = 1, max = 8, message = "用户名长度在1-8之间")
     @NotEmpty(message = "用户名不能为空")
-    public String userName;
+    public String username;
     @NotEmpty(message = "密码不能为空")
     @Min(value = 3, message = "密码长度大于2")
-    public String passWord;
+    public String password;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public UmsMemberLoginParamDTO setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public UmsMemberLoginParamDTO setPassword(String password) {
+        this.password = password;
+        return this;
+    }
 
     @Override
     public String toString() {
         return "UmsMemberLoginParamDTO{" +
-                "userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public UmsMemberLoginParamDTO setUserName(String userName) {
-        this.userName = userName;
-        return this;
-    }
-
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public UmsMemberLoginParamDTO setPassWord(String passWord) {
-        this.passWord = passWord;
-        return this;
     }
 }

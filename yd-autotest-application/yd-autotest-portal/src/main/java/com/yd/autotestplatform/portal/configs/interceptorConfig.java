@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -27,10 +28,10 @@ public class interceptorConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        		registry.addInterceptor(authInterceptor())
-				.addPathPatterns("/**")
-				.excludePathPatterns("/user-member/register")
-				.excludePathPatterns("/ums-member/login");
+        InterceptorRegistration interceptorRegistration = registry.addInterceptor(authInterceptor());
+        interceptorRegistration.addPathPatterns("/**");
+        interceptorRegistration.excludePathPatterns("/ums-member/register");
+        interceptorRegistration.excludePathPatterns("/ums-member/login");
     }
 
     @Bean

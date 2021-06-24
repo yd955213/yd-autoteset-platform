@@ -27,8 +27,8 @@ class UmsMemberServiceImplTest {
     @Test
     void login() {
         UmsMemberLoginParamDTO umsMemberLoginParamDTO = new UmsMemberLoginParamDTO();
-        umsMemberLoginParamDTO.setUserName("yd");
-        umsMemberLoginParamDTO.setPassWord("123456");
+        umsMemberLoginParamDTO.setUsername("yd");
+        umsMemberLoginParamDTO.setPassword("123456");
         ResultWrapper<String> login = umsMemberServiceImpl.login(umsMemberLoginParamDTO);
         System.out.println(login);
     }

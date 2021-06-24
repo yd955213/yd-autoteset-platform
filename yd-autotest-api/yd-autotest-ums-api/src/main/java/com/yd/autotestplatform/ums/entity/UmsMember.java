@@ -67,109 +67,123 @@ public class UmsMember implements Serializable {
      */
     private Integer status;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public Long getUmsId() {
         return umsId;
     }
 
-    public void setUmsId(Long umsId) {
+    public UmsMember setUmsId(Long umsId) {
         this.umsId = umsId;
+        return this;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public UmsMember setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public UmsMember setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public String getIcon() {
         return icon;
     }
 
-    public void setIcon(String icon) {
+    public UmsMember setIcon(String icon) {
         this.icon = icon;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public UmsMember setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getNickName() {
         return nickName;
     }
 
-    public void setNickName(String nickName) {
+    public UmsMember setNickName(String nickName) {
         this.nickName = nickName;
+        return this;
     }
 
     public String getNote() {
         return note;
     }
 
-    public void setNote(String note) {
+    public UmsMember setNote(String note) {
         this.note = note;
+        return this;
     }
 
     public Date getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(Date gmtCreate) {
+    public UmsMember setGmtCreate(Date gmtCreate) {
         this.gmtCreate = gmtCreate;
+        return this;
     }
 
     public Date getGmtModified() {
         return gmtModified;
     }
 
-    public void setGmtModified(Date gmtModified) {
+    public UmsMember setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
+        return this;
     }
 
     public Date getLoginTime() {
         return loginTime;
     }
 
-    public void setLoginTime(Date loginTime) {
+    public UmsMember setLoginTime(Date loginTime) {
         this.loginTime = loginTime;
+        return this;
     }
 
     public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public UmsMember setStatus(Integer status) {
         this.status = status;
+        return this;
     }
 
     @Override
     public String toString() {
         return "UmsMember{" +
-        "umsId=" + umsId +
-        ", username=" + username +
-        ", password=" + password +
-        ", icon=" + icon +
-        ", email=" + email +
-        ", nickName=" + nickName +
-        ", note=" + note +
-        ", gmtCreate=" + gmtCreate +
-        ", gmtModified=" + gmtModified +
-        ", loginTime=" + loginTime +
-        ", status=" + status +
-        "}";
+                "umsId=" + umsId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", icon='" + icon + '\'' +
+                ", email='" + email + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", note='" + note + '\'' +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", loginTime=" + loginTime +
+                ", status=" + status +
+                '}';
     }
 }

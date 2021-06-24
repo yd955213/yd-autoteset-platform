@@ -1,9 +1,9 @@
 package com.yd.autotestplatform.portal.Interceptors;
 
-import com.mysql.cj.util.StringUtils;
 import com.yd.autotestplatform.base.annotation.TokenCheck;
 import com.yd.autotestplatform.base.custumExceptions.TokenException;
 import com.yd.autotestplatform.util.JwtToken;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,9 +34,10 @@ public class AuthInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        System.out.println("**************************** AuthInterceptor ****************************");
         String token = request.getHeader("token");
         // 判断token 是否为空
-        if(StringUtils.isEmptyOrWhitespaceOnly(token)){
+        if(ObjectUtils.isEmpty(token)){
             throw new TokenException("token为空");
         }
         // 获取请求对应的controller层的方法名

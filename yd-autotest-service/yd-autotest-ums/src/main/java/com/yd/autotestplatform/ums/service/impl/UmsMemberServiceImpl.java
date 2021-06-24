@@ -40,6 +40,7 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
 
 //        UmsMember umsMember = new UmsMember();
         // 将umsMemberRegisterParamDTO的属性值传递给umsMember
+        // BeanUtils.copyProperties 区分大小写， 两个类的参数名必须一样才会赋值，否则为空
         BeanUtils.copyProperties(umsMemberRegisterParamDTO, umsMember);
         // 使用BCryptPasswordEncoder 加密密码后写库 这种方法不常用，
 //        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -52,12 +53,12 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
     }
 
     public ResultWrapper<String> login(UmsMemberLoginParamDTO umsMemberLoginParamDTO){
-        umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUserName());
+        umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUsername());
         String data = "";
         if(null != umsMember){
             String passwordInDb = umsMember.getPassword();
 
-            if (!passwordEncoder.matches(umsMemberLoginParamDTO.getPassWord(), umsMember.getPassword())){
+            if (!passwordEncoder.matches(umsMemberLoginParamDTO.getPassword(), umsMember.getPassword())){
                 data = "密码错误！";
                 return ResultWrapper.getFailBuilder()
                         .code(StateCodeEnum.PASSWORD_ERROR.getCode())
@@ -72,7 +73,7 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember
                     .msg(StateCodeEnum.USER_EMPTY.getMsg()).data(data).build();
         }
 
-        String token = JwtToken.creatToken(umsMemberLoginParamDTO.getUserName());
+        String token = JwtToken.creatToken(umsMemberLoginParamDTO.getUsername());
         UmsMemberLoginResponseParam umsMemberLoginResponseParam= new UmsMemberLoginResponseParam();
         umsMemberLoginResponseParam.setToken(token);
         umsMember.setPassword("");

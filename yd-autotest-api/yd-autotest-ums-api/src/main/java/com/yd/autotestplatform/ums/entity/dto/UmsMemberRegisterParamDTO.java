@@ -19,9 +19,9 @@ import javax.validation.constraints.Size;
 
 public class UmsMemberRegisterParamDTO {
     @Size(min = 1, max = 8, message = "用户名长度在1-8之间")
-    private String userName;
+    private String username;
     @Min(value = 3, message = "密码长度大于2")
-    private String passWord;
+    private String password;
     private String icon;
     @Pattern(regexp = "^[1][3, 4, 5, 6, 7, 8, 9][0-9]{9}$", message = "手机号格式错误！")
     private String phoneNumber;
@@ -33,8 +33,8 @@ public class UmsMemberRegisterParamDTO {
     @Override
     public String toString() {
         return "UmsMemberRegisterParamDTO{" +
-                "username='" + userName + '\'' +
-                ", password='" + passWord + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", icon='" + icon + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
@@ -43,30 +43,21 @@ public class UmsMemberRegisterParamDTO {
                 '}';
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public UmsMemberRegisterParamDTO setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-        return this;
-    }
-
     public String getUsername() {
-        return userName;
+        return username;
     }
 
-    public UmsMemberRegisterParamDTO setUsername(String userName) {
-        this.userName = userName;
+    public UmsMemberRegisterParamDTO setUsername(String username) {
+        this.username = username;
         return this;
     }
 
     public String getPassword() {
-        return passWord;
+        return password;
     }
 
-    public UmsMemberRegisterParamDTO setPassword(String passWord) {
-        this.passWord = passWord;
+    public UmsMemberRegisterParamDTO setPassword(String password) {
+        this.password = password;
         return this;
     }
 
@@ -76,6 +67,15 @@ public class UmsMemberRegisterParamDTO {
 
     public UmsMemberRegisterParamDTO setIcon(String icon) {
         this.icon = icon;
+        return this;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public UmsMemberRegisterParamDTO setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
         return this;
     }
 

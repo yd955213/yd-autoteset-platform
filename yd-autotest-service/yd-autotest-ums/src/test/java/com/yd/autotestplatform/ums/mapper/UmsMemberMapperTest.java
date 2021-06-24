@@ -28,10 +28,10 @@ class UmsMemberMapperTest {
     @Test
     void selectByName() {
         UmsMemberLoginParamDTO umsMemberLoginParamDTO = new UmsMemberLoginParamDTO();
-        umsMemberLoginParamDTO.setUserName("yd");
-        umsMemberLoginParamDTO.setPassWord("123");
+        umsMemberLoginParamDTO.setUsername("yd");
+        umsMemberLoginParamDTO.setPassword("123");
         UmsMember umsMember = umsMemberMapper.selectById(68L);
-        umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUserName());
+        umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUsername());
         System.out.println(umsMember);
     }
 
