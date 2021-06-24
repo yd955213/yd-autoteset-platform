@@ -18,7 +18,7 @@ import java.util.UUID;
  *  .Payload  (base64编码，包含需要加密的信息)
  *  .Signature （散列算法（Header里写出了算法方式）加密后的值）
  * </p>
- *
+ * 加密
  * @author: yd
  * @version: V1.0
  * @contact:
